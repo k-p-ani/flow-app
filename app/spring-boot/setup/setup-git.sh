@@ -14,14 +14,14 @@ git config user.email "${GIT_REPO_EMAIL}"
 git config user.name "${GIT_REPO_UNAME}"
 git add .
 git commit -m "first commit"
-error=$(git remote add origin https://gitlab-ci-token:${GIT_REPO_TKN}@$URI 2>&1 1>/dev/null)
+error=$(git remote add origin https://gitlab-ci-token:${GIT_TKN}@$URI 2>&1 1>/dev/null)
 if [ $? -eq 0 ]; then
    echo "git uri ${GIT_URI} has been added as origin"
 else
    echo "Failed to add git uri ${GIT_URI} as origin. \n Error: $error"
    return 100
 fi
-#git remote add origin https://${GIT_REPO_TKN}@$URI
+#git remote add origin https://${GIT_TKN}@$URI
 #error=$(git push -u origin master 2>&1 1>/dev/null)
 echo "executing git push to main"
 echo "current workdir" $(pwd)
