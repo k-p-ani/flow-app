@@ -1,0 +1,88 @@
+# the maven project group for the application
+PROJECT_GROUP_ID=springboot-app
+# the maven artifact id for the application
+PROJECT_ARTIFACT_ID=rosa
+# the version of the application artifact
+PROJECT_ARTIFACT_VERSION=0.0.1
+# the URI of the project GIT repository
+GIT_URI=https://github.com/k-p-ani/test.git
+# git host to push the code (eg. gitlab.com)
+GIT_REPO_HOST=gitlab.com
+# git user email id to push the code
+GIT_REPO_EMAIL=ani.p@gmail.com
+# the URI of the SonarQube server to use for code quality reporting
+# the name:tag for the application package to be published (e.g. registry-host/app-group/app-name)
+APP_PACKAGE_NAME=artisan.cmsee.stack/aps/springboot-app
+# openshift app name
+APPLICATION_NAME=springboot-app
+# image builder name (buildah image)
+BUILDER_IMAGE=quay.io/artisan/buildah
+# application image registry name
+PUSH_IMAGE_REGISTRY=registry.gitlab.com
+# application image repo nameN
+PUSH_IMAGE_REPO=sushil007pal
+# application image name
+PUSH_IMAGE_NAME=springboot-app
+# application image version/tag
+PUSH_IMAGE_VERSION=springboot-app
+# application runtime image registry name
+PULL_IMAGE_REGISTRY=registry.redhat.io
+# function name to build image
+FX_NAME=build-image
+# email id which is used to generate crypto signature keys(eg : test@hostname.com)
+CRYPTO_KEY_EMAIL=test@vm-sapg01.com
+#the java quarkus recepie package name
+PACKAGE_NAME=artisan.cmsee.stack/aps/springboot
+# git repo user name to push the code
+GIT_REPO_UNAME=k-p-ani
+# git repo user password to push the code
+GIT_REPO_PWD=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
+# the token to access the Sonar server
+SONAR_TOKEN=002a30b80c09827b08ec1456b7451e99f8d97d15
+# the artisan registry user
+ART_REG_USER=admin
+# the artisan registry password
+ART_REG_PWD=wwq3Q2sfeNMi0CWa
+# user name for the container registry where the base image is located
+PULL_IMAGE_REGISTRY_UNAME=sushil07pal
+# password for the container registry where the base image is located
+PULL_IMAGE_REGISTRY_PWD=password07
+# user name for the container registry where the application image will be pushed
+PUSH_IMAGE_REGISTRY_UNAME=admin
+# password for the container registry where the application image will be pushed
+PUSH_IMAGE_REGISTRY_PWD=wwq3Q2sfeNMi0CWa
+# artefact registry user name
+REGISTRY_USER=admin
+# artefact registry user password
+REGISTRY_PWD=wwq3Q2sfeNMi0CWa
+# the path of the key in the artisan registry as described below:
+# the private PGP key required to digitally sign the application package
+SIGNING_KEY=/
+# the public PGP key required to open the application package
+VERIFICATION_KEY=/
+
+#Extra vars
+SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_USER=admin
+SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_PWD=wwq3Q2sfeNMi0CWa
+SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_VERIFICATION_KEY=/
+
+#vars required for artisan runner
+#OPENSHIFT_NAMESPACE=amosonline-aws-01-sapgatewaycd
+SETUP_NAMESPACE=amosonline-aws-01-rosa
+CI_NAMESPACE=amosonline-aws-01-rosa
+ART_RUNNER_UNAME=admin
+ART_RUNNER_PWD=admin@321
+ART_RUNNER_URI=localhost:8080
+#HOST_NAME=amosonline-aws-01-rosa.apps.rosanetamos.3qgg.p1.openshiftapps.com
+
+SPRING_SPRINGBOOT_OXART_REG_USER=admin
+SPRING_SPRINGBOOT_OXART_REG_PWD=wwq3Q2sfeNMi0CWa
+SPRING_SPRINGBOOT_OXART_VERIFICATION_KEY=/
+
+SONAR_URI=http://002a30b80c09827b08ec1456b7451e99f8d97d15:@sonarqube-amosonline-aws-01-rosa.apps.rosanetamos.3qgg.p1.openshiftapps.com
+# the unique key identifying the project in the SonarQube server
+SONAR_PROJECT_KEY=net.atos:springboot-app
+# the path the sonar scanner should use to scan source code
+SONAR_SOURCES=src/
+# the path the sonar scanner should use to scan binary files
+SONAR_BINARIES=build/classes

@@ -21,6 +21,7 @@ input:
       default: 0.0.1
       description: the version of the application artifact
 
+
     # env variables required by CI flow bare template function
     - name: APPLICATION_NAME
       required: true

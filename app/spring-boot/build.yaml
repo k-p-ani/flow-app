@@ -10,31 +10,6 @@ input:
         the URI of the project git repository. create empty git project and pass that uri here.
         eg. https://gitlab.com/<group-name>/<project-name>.git
 
-    - name: SONAR_URI
-      required: true
-      type: uri
-      description: |-
-        the URI of the SonarQube server to use for code quality reporting
-        eg. https://<host-name>
-
-    - name: SONAR_PROJECT_KEY
-      required: true
-      type: string
-      description: |-
-        the unique key identifying the project in the SonarQube server
-
-    - name: SONAR_SOURCES
-      required: true
-      type: path
-      default: src/
-      description: the path the sonar scanner should use to scan source code
-
-    - name: SONAR_BINARIES
-      required: true
-      type: path
-      default: target/classes
-      description: the path the sonar scanner should use to scan binary files
-
     - name: APP_PACKAGE_NAME
       required: true
       type: name
@@ -137,11 +112,6 @@ input:
       description: openshift or kubernetes cluster hostname required to deploy app & create an ingress
 
   secret:
-    - name: SONAR_TOKEN
-      description: |-
-        the token to access the sonar server
-        open sonar dashboard -> click on My Account -> Security -> Genearte new token
-
     - name: PULL_IMAGE_REGISTRY_UNAME
       description: user name for the container registry where the base image is located
 
@@ -283,7 +253,6 @@ functions:
         - GIT_REPO_UNAME
         - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_USER
         - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_PWD
-        - SONAR_TOKEN
         - ART_REG_USER
         - ART_REG_PWD
         - SPRING_SPRINGBOOT_OXART_REG_PWD
