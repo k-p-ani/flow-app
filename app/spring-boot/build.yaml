@@ -121,11 +121,6 @@ input:
         it contains setup & pipeline flow alongwith build.yaml file
         this package should be already available in the artefact registry like nexus
 
-    - name: SETUP_NAMESPACE
-      required: true
-      type: string
-      description: the name of the openshift/kubernetes namespace where the setup pipeline should be created
-
     - name: ART_RUNNER_URI
       required: true
       type: string
@@ -184,12 +179,6 @@ input:
       description: |-
         password for the container registry to download the recipe package
         this variable is required when we use art exec command to setup pipeline
-
-    - name: ART_RUNNER_UNAME
-      description: the user to authenticate with the Artisan Runner
-
-    - name: ART_RUNNER_PWD
-      description: the password to authenticate with the Artisan Runner
 
     - name: ART_REG_USER
       description: the user to authenticate with the Artisan Registry (used by Application publish-app function)
@@ -295,8 +284,6 @@ functions:
         - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_USER
         - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_PWD
         - SONAR_TOKEN
-        - ART_RUNNER_UNAME
-        - ART_RUNNER_PWD
         - ART_REG_USER
         - ART_REG_PWD
         - SPRING_SPRINGBOOT_OXART_REG_PWD
@@ -316,10 +303,38 @@ functions:
         - PROJECT_ARTIFACT_ID
         - PROJECT_ARTIFACT_VERSION
         - PROJECT_GROUP_ID
-        - SONAR_BINARIES
-        - SONAR_PROJECT_KEY
-        - SONAR_SOURCES
-        - SONAR_URI
-        - SETUP_NAMESPACE
         - ART_RUNNER_URI
+
+
+  - name: ci
+    description: create a pipeline in host to build and package spring-boot
+    runtime: ubi-min
+    export: true
+    run:
+      - art merge setup/ci_flow_bare.yaml.tem
+      - art flow run setup/ci_flow_bare.yaml -b ./app ${ART_RUNNER_URI}
+    input:
+      secret:
+        - PULL_IMAGE_REGISTRY_PWD
+        - PULL_IMAGE_REGISTRY_UNAME
+        - PUSH_IMAGE_REGISTRY_PWD
+        - PUSH_IMAGE_REGISTRY_UNAME
+        - GIT_REPO_TKN
+        - GIT_REPO_UNAME
+        - ART_REG_USER
+        - ART_REG_PWD
+      var:
+        - APP_PACKAGE_NAME
+        - APPLICATION_NAME
+        - CRYPTO_KEY_EMAIL
+        - PULL_IMAGE_REGISTRY
+        - PUSH_IMAGE_NAME
+        - PUSH_IMAGE_REGISTRY
+        - PUSH_IMAGE_REPO
+        - PUSH_IMAGE_VERSION
+        - GIT_URI
+        - PROJECT_ARTIFACT_ID
+        - PROJECT_ARTIFACT_VERSION
+        - PROJECT_GROUP_ID
+        - ART_RUNNER_URI        
 ...

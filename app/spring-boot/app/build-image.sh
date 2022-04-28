@@ -31,18 +31,5 @@ if [ "$?" -ne 0 ]; then
     skopeo copy --sign-by=${CRYPTO_KEY_EMAIL} --dest-tls-verify=false --dest-creds ${PUSH_IMAGE_REGISTRY_UNAME}:${PUSH_IMAGE_REGISTRY_PWD} containers-storage:${PUSH_IMAGE_REGISTRY}/${PUSH_IMAGE_REPO}/${PUSH_IMAGE_NAME}:${PUSH_IMAGE_VERSION} docker://${PUSH_IMAGE_REGISTRY}/${PUSH_IMAGE_REPO}/${PUSH_IMAGE_NAME}:${PUSH_IMAGE_VERSION}
 fi
 
-# deploy the app if flag file is present else skip app deployment
-if [ -e app-deploy-flag.txt ]; then
-   # merges application template
-   art merge deploy.yaml.tem
-
-   # create application
-   kubectl apply -f deploy.yaml
-   if [ $? -ne 0 ]; then
-      echo "Failed to deploy the app"
-      exit 1
-   fi
-fi
-
 # delete files
 rm -f app-deploy-flag.txt inspect.log
