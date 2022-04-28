@@ -204,8 +204,8 @@ functions:
       secret:
         - ART_REG_USER
         - ART_REG_PWD
-        - SPRING_SPRINGBOOT_OXART_REG_PWD
-        - SPRING_SPRINGBOOT_OXART_REG_USER 
+#        - SPRING_SPRINGBOOT_OXART_REG_PWD
+#        - SPRING_SPRINGBOOT_OXART_REG_USER 
 #      key:
 #        - SPRING_SPRINGBOOT_OXART_VERIFICATION_KEY               
 
@@ -225,8 +225,8 @@ functions:
         - GIT_REPO_TKN
         - ART_REG_USER
         - ART_REG_PWD
-        - SPRING_SPRINGBOOT_OXART_REG_PWD
-        - SPRING_SPRINGBOOT_OXART_REG_USER               
+#        - SPRING_SPRINGBOOT_OXART_REG_PWD
+#        - SPRING_SPRINGBOOT_OXART_REG_USER               
 
   # used this function on VM/local m/c to create the spring-boot setup tekton pipeline into openshift
   - name: setup
@@ -243,20 +243,18 @@ functions:
 #        - SIGNING_KEY
 #        - VERIFICATION_KEY
       secret:
-        - REGISTRY_USER
-        - REGISTRY_PWD
         - PULL_IMAGE_REGISTRY_PWD
         - PULL_IMAGE_REGISTRY_UNAME
         - PUSH_IMAGE_REGISTRY_PWD
         - PUSH_IMAGE_REGISTRY_UNAME
         - GIT_REPO_TKN
         - GIT_REPO_UNAME
-        - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_USER
-        - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_PWD
+#        - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_USER
+#        - SPRINGBOOT_SETUP_CREATE_PROJECT_OXART_REG_PWD
         - ART_REG_USER
         - ART_REG_PWD
-        - SPRING_SPRINGBOOT_OXART_REG_PWD
-        - SPRING_SPRINGBOOT_OXART_REG_USER
+#        - SPRING_SPRINGBOOT_OXART_REG_PWD
+#        - SPRING_SPRINGBOOT_OXART_REG_USER
       var:
         - APP_PACKAGE_NAME
         - APPLICATION_NAME
