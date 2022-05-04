@@ -97,7 +97,6 @@ profiles:
     run:
       # copy the docker file to build the jvm version to the artefact(target) package folder
       - cp Dockerfile build/build/Dockerfile
-      # copy the below files to build the jvm version to the artefact(target) package folder
       # these files are required to build images & deploy the app
       - cp build-image.sh build/build/build-image.sh
     target: build/build
@@ -136,8 +135,6 @@ functions:
     run:
       # scaffolding is adding artefacts/targets in .dockerignore file. deleteing it to copy files into the docker images
       - rm -rf .dockerignore
-      # download application package from the artefact repository
-#      - art open -u=${ART_REG_USER}:${ART_REG_PWD} ${APP_PACKAGE_NAME} /workspace/source
       # build & sign the docker image & push into the img registry. also deploy the app 
       - sh build-image.sh
     input:
@@ -149,4 +146,4 @@ functions:
       secret:
         - PUSH_IMAGE_REGISTRY_UNAME
         - PUSH_IMAGE_REGISTRY_PWD
- ..
+ ...
