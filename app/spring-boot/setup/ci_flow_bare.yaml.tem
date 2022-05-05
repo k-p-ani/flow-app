@@ -17,7 +17,7 @@ steps:
 
   - name: build-image
     description: build and publish container image
-    runtime: buildah
+    runtime: docker.cmsee.stack/artisan/podman-runner
     function: build-image
-    privileged: true
+    
 ...

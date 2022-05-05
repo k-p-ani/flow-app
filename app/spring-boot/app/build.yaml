@@ -131,7 +131,7 @@ functions:
 
   # this function is used by CI pipeline
   - name: build-image
-    runtime: docker.cmsee.stack/artisan/img-runner
+    runtime: docker.cmsee.stack/artisan/podman-runner
     run:
       # scaffolding is adding artefacts/targets in .dockerignore file. deleteing it to copy files into the docker images
       - rm -rf .dockerignore
