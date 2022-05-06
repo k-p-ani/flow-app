@@ -2,7 +2,7 @@
 VERIFY_TLS="${TLS_VERIFY:-true}"
 
 # login to push image registry
-podman login --tls-verify=$VERIFY_TLS -u ${PUSH_IMAGE_REGISTRY_UNAME} -p ${PUSH_IMAGE_REGISTRY_PWD} ${PUSH_IMAGE_REGISTRY}
+podman login --log-level=debug --tls-verify=$VERIFY_TLS -u ${PUSH_IMAGE_REGISTRY_UNAME} -p ${PUSH_IMAGE_REGISTRY_PWD} ${PUSH_IMAGE_REGISTRY}
 if [ $? -ne 0 ]; then
    echo "Failed to login to docker registry ${PUSH_IMAGE_REGISTRY}"
    exit 1
